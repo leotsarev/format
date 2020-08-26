@@ -282,4 +282,7 @@
   <data name="Remove_unnecessary_import" xml:space="preserve">
     <value>Remove unnecessary import.</value>
   </data>
+  <data name="Run_whitespace_formatting_Run_by_default_when_not_applying_fixes" xml:space="preserve">
+    <value>Run whitespace formatting. Run by default when not applying fixes.</value>
+  </data>
 </root>

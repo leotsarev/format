@@ -20,14 +20,9 @@ namespace Microsoft.CodeAnalysis.Tools.Analyzers
 
         public (ImmutableArray<DiagnosticAnalyzer> Analyzers, ImmutableArray<CodeFixProvider> Fixers) GetAnalyzersAndFixers(
             Solution solution,
-            FormatOptions options,
+            FormatOptions formatOptions,
             ILogger logger)
         {
-            if (!options.FixCodeStyle)
-            {
-                return (ImmutableArray<DiagnosticAnalyzer>.Empty, ImmutableArray<CodeFixProvider>.Empty);
-            }
-
             var assemblies = new[]
             {
                 _featuresPath,

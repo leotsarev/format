@@ -29,11 +29,6 @@ namespace Microsoft.CodeAnalysis.Tools.Analyzers
             FormatOptions formatOptions,
             ILogger logger)
         {
-            if (!formatOptions.FixAnalyzers)
-            {
-                return (ImmutableArray<DiagnosticAnalyzer>.Empty, ImmutableArray<CodeFixProvider>.Empty);
-            }
-
             var assemblies = solution.Projects
                 .SelectMany(project => project.AnalyzerReferences.Select(reference => reference.FullPath))
                 .Distinct()
@@ -52,7 +47,7 @@ namespace Microsoft.CodeAnalysis.Tools.Analyzers
                 return null;
             }
 
-            // Roslyn CodeStyle analysis is handled with the --fix-style option.
+            // Roslyn CodeStyle analysis is handled with the --style option.
             var assemblyFileName = Path.GetFileNameWithoutExtension(path);
             if (s_roslynCodeStyleAssmeblies.Contains(assemblyFileName))
             {
